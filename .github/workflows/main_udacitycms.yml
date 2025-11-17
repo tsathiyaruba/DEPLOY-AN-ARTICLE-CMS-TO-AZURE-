@@ -38,8 +38,10 @@ jobs:
         with:
           name: python-app
           path: |
-            .
-            !antenv/
+            ./*
+           !antenv/
+           !.git/
+           !.github/
 
       # 🚫 Opting Out of Oryx Build
       # If you prefer to disable the Oryx build process during deployment, follow these steps:
@@ -63,4 +65,5 @@ jobs:
         with:
           app-name: 'udacitycms'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C2C845D4BA4A459E80027EE44A33E689 }}
+
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE}}
